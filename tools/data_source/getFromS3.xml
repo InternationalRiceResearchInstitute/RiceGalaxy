@@ -1,0 +1,11 @@
+<tool id="getVarietyName-s3tool" name="Get Unique Variety ID's" version="1.0.0">
+	<description>From Amazon S3 Bucket </description>
+	<command>
+		aws s3api list-objects --bucket 3kricegenome --output text --prefix 9311 --query Contents[].[Key] | grep -i "vcf.gz$" | cut -d '/' -f 2 | cut -d '.' -f 1 > $output
+	</command>
+		
+	<outputs>
+		<data name="output" format="txt" />
+	</outputs>
+
+</tool>
