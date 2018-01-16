@@ -137,3 +137,7 @@ doc/source/dev/schema.rst
 *.rej
 *~
 .idea
+./.git/objects/pack/pack-3c3de597182116d6a1ac64f246713eec265a0a20.pack
+./tools/tassel5/.git/objects/pack/pack-d752f1b6650390c0b21622bd1407f049e243f42d.pack
+./.git/objects/pack/pack-3c3de597182116d6a1ac64f246713eec265a0a20.pack
+./tools/tassel5/.git/objects/pack/pack-d752f1b6650390c0b21622bd1407f049e243f42d.pack

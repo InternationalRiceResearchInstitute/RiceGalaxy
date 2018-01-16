@@ -69,12 +69,18 @@
 	</inputs>
 	
 	<outputs>
-		<data name="output" format="txt" label="Converted Genotype File"/>
+		<data name="output" format="tabular" label="Converted Genotype File"/>
 	</outputs>
 
 	<tests>
-		
-
+		<test>
+			<conditional name="geno_type">
+				<param name="geno_source" value="vcf"/>
+				<param name="vcfGeno" value="geno.vcf"/>
+			</conditional>		
+			<param name="outputFormat" value="hapmap"/>
+			<output name="output" file="geno.hmp.txt" compare="sim_size"/>
+		</test>
 	</tests>
 		
 	<stdio>

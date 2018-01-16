@@ -1,6 +1,7 @@
 <tool id="tassel-calc-kinship" name="Calculate Kinship" version="1.0.0" force_history_refresh="True">
 	<description>from Genotype Data </description>
 	<command><![CDATA[
+		#set id = $kinshipOut.dataset_id
 		mkdir -p $__tool_directory__/out/ &&
 		perl $__tool_directory__/run_pipeline.pl -fork1
 		#if str($geno_type.geno_source)=="hapmap"
@@ -17,8 +18,8 @@
                         -map $flapjackMap
 		#end if
 		-KinshipPlugin 
-		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out/output.txt -exportType SqrMatrix -runfork1 > $kinshipLog 
-		&& mv $__tool_directory__/out/output.txt $kinshipOut
+		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out/out$id -exportType SqrMatrix -runfork1 > $kinshipLog 
+		&& mv $__tool_directory__/out/out$id".txt" $kinshipOut
 		&& rm -rf  $__tool_directory__/out/
 	]]>
 	</command>
@@ -57,8 +58,8 @@
 	</inputs>
 	
 	<outputs>
-		<data name="kinshipOut" format="txt" label="Kinship Matrix"/>
-		<data name="kinshipLog" format="txt" label="Log File: Calculate Kinship"/>
+		<data name="kinshipOut" format="tabular" label="Kinship Matrix"/>
+		<data name="kinshipLog" format="txt" hidden="true" label="Log File: Calculate Kinship"/>
 	</outputs>
 
 	<tests>
