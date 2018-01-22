@@ -3,13 +3,13 @@
 	<command><![CDATA[
 		mkdir -p $__tool_directory__/out/ &&
 		#if $geno_type.geno_source=="hapmap"
-		perl $__tool_directory__/run_pipeline.pl -fork1 -h $geno_type.hapmapGeno -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
+		perl $__tool_directory__/run_pipeline.pl -fork1 -h $geno_type.hapmapGeno -sortPositions -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
 		#else if str($geno_type.geno_source)=="vcf"
                 perl $__tool_directory__/run_pipeline.pl -fork1 -v $geno_type.vcfGeno -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
 		#else if str($geno_type.geno_source)=="plink"		
 		perl $__tool_directory__/run_pipeline.pl -fork1 -plink -ped $geno_type.plinkPed -map $geno_type.plinkMap -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
 		#else if str($geno_type.geno_source)=="flapjack"
-		perl $__tool_directory__/run_pipeline.pl -fork1 -flapjack -geno $geno_type.flapjackGeno -map $geno_type.flapjackMap -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
+		perl /home/galaxy/galaxy-prod/tools/tassel3/run_pipeline.pl -fork1 -flapjack -geno $geno_type.flapjackGeno -map $geno_type.flapjackMap -filterAlign -filterAlignMinFreq $filterMinFreq -fork2 -r $trait -fork3 -q $popStruct -combine4 -input1 -input2 -input3 -intersect -glm -export $__tool_directory__/out/output1,$__tool_directory__/out/output2 -runfork1 -runfork2 -runfork3 > $glm_log
 		#end if 	
 		&& mv $__tool_directory__/out/output1.txt $glm_output1
 		&& mv $__tool_directory__/out/output2.txt $glm_output2
@@ -53,7 +53,7 @@
 	<outputs>
 		<data name="glm_output1"  format="tabular" label="GLM Marker Effects"/>
 		<data name="glm_output2"  format="tabular" label="GLM Genotype Statistics"/>
-		<data name="glm_log" format="txt" label="GLM Log"/>
+		<data name="glm_log" format="txt"  label="GLM Log"/>
 	</outputs>
 
 	<tests>

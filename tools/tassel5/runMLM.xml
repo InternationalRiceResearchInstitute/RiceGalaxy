@@ -15,7 +15,8 @@
 			-flapjack
 			-geno '$flapjackGeno'
 			-map '$flapjackMap'
-		#end if 	
+		#end if 
+		-sortPositions	
 		-filterAlign -filterAlignMinFreq '$alleleFreq'
 		-fork2 -r '$traitFile'
 		-fork3 -r '$popStructure'
@@ -23,11 +24,12 @@
 		-combine5 -input1 -input2 -input3 -intersect
 		-combine6 -input5 -input4 -mlm -mlmVarCompEst P3D -mlmCompressionLevel Optimum
 		-export $__tool_directory__/out/output
-		-runfork1 -runfork2 -runfork3 -runfork4 
-		&& mv $__tool_directory__/out/output3.txt $mlm_output1
-		&& mv $__tool_directory__/out/output4.txt $mlm_output2
-		&& mv $__tool_directory__/out/output5.txt $mlm_output3
-		&& mv $__tool_directory__/out/output6.txt $mlm_output4
+		-runfork1 -runfork2 -runfork3 -runfork4 > $mlm_log
+		&& mv $__tool_directory__/out/output1.txt $mlm_output1
+		&& mv $__tool_directory__/out/output2.txt $mlm_output2
+		&& mv $__tool_directory__/out/output3.txt $mlm_output3
+		&& mv $__tool_directory__/out/output4.txt $mlm_output4
+		&& mv $__tool_directory__/out/output5.txt $mlm_output5
 		&& rm -r $__tool_directory__/out/
 		]]>
 	</command>
@@ -68,16 +70,10 @@
 		<data name="mlm_output1"  format="tabular" label="MLM Model Statistics"/>
 		<data name="mlm_output2"  format="tabular" label="MLM Model Effects"/>
 		<data name="mlm_output3"  format="tabular" label="Compression Effects"/>
-		<data name="mlm_output4"  format="tabular" label="MLM Specific Statistics"/>
-		
-<!--
-			<discover_datasets pattern="(?P&lt;TASSELOUT1&gt;.+)\.dat\.txt" ext="txt" visible="true" /> 
-		</data>
-		<data name="glm_output2" label="GLM Statistics">
-			<discover_datasets pattern="(?P&lt;TASSELOUT2&gt;.+)\.dat\.txt" ext="txt" visible="true" />
-		</data>
--->
-		<data name="glm_log" format="txt" label="GLM Log"/>
+		<data name="mlm_output4"  format="tabular" label="MLM Specific Statistics 1"/>
+		<data name="mlm_output5"  format="tabular" label="MLM Specific Statistics 2"/>
+		<!-- <data name="mlm_log" format="txt" hidden="true" label="MLM Log"/> -->
+		<data name="mlm_log" format="txt" label="MLM Log"/>
 	</outputs>
 
 	<tests>

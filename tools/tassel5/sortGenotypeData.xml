@@ -17,7 +17,6 @@
                         -geno $flapjackGeno
                         -map $flapjackMap
 		#end if
-		-sortPositions
 		-KinshipPlugin 
 		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out/out$id -exportType SqrMatrix -runfork1 > $kinshipLog 
 		&& mv $__tool_directory__/out/out$id".txt" $kinshipOut
@@ -61,8 +60,6 @@
 	<outputs>
 		<data name="kinshipOut" format="tabular" label="Kinship Matrix"/>
 		<data name="kinshipLog" format="txt" hidden="true" label="Log File: Calculate Kinship"/>
-<!--		For debugging purposes, unhide from history by removing hidden tag
-		<data name="kinshipLog" format="txt" label="Log File: Calculate Kinship"/> -->
 	</outputs>
 
 	<tests>

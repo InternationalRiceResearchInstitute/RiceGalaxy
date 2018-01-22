@@ -1,7 +1,7 @@
-<tool id="tassel-calc-kinship" name="Calculate Kinship" version="1.0.0" force_history_refresh="True">
-	<description>from Genotype Data </description>
+<tool id="tassel-calc-pca" name="Run PCA" version="1.0.0" force_history_refresh="True">
+	<description>(Principal Component Analysis) on genetic data </description>
 	<command><![CDATA[
-		#set id = $kinshipOut.dataset_id
+		#set id = $pcs.dataset_id
 		mkdir -p $__tool_directory__/out/ &&
 		perl $__tool_directory__/run_pipeline.pl -fork1
 		#if str($geno_type.geno_source)=="hapmap"
@@ -17,11 +17,11 @@
                         -geno $flapjackGeno
                         -map $flapjackMap
 		#end if
-		-sortPositions
-		-KinshipPlugin 
-		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out/out$id -exportType SqrMatrix -runfork1 > $kinshipLog 
-		&& mv $__tool_directory__/out/out$id".txt" $kinshipOut
-		&& rm -rf  $__tool_directory__/out/
+		-PrincipalComponentsPlugin 
+		-covariance $cov -endPlugin -export out$id -runfork1 > $pcaLog 
+		&& mv $__tool_directory__/out/out$id"1.txt" $pcs
+		&& mv $__tool_directory__/out/out$id"2.txt" $eigenVal
+		&& mv $__tool_directory__/out/out$id"3.txt" $eigenVec
 	]]>
 	</command>
 
@@ -49,20 +49,14 @@
                                 <param name="hapmapGeno" type="data" format="tabular" label="Hapmap file"/>
 			</when>
 		</conditional>
-		<param name="kinshipMethod" type="select" label="Kinship Method to use" help="Select from : [Centered_IBS, Normalized_IBS, Dominance_Centered_IBS, Dominance_Normalized_IBS] ">
-			<option value="Centered_IBS" selected="true"> Centered IBS </option>
-			<option value="Normalized_IBS"> Normalized IBS </option>
-			<option value="Dominance_Centered_IBS">Dominance Centered IBS </option>
-			<option value="Dominance_Normalized_IBS">Dominance Normalized IBS </option>
-		</param>
-		<param name="maxAlleles" type="text" size="10" value="2" label="Maximum Alleles to expect in Genotype File" help="Integer. [2 .. 6]"/>
+		<param name="cov" type="boolean" checked="true" truevalue="true" falsevalue="false"  label="Covariance"/>
 	</inputs>
 	
 	<outputs>
-		<data name="kinshipOut" format="tabular" label="Kinship Matrix"/>
-		<data name="kinshipLog" format="txt" hidden="true" label="Log File: Calculate Kinship"/>
-<!--		For debugging purposes, unhide from history by removing hidden tag
-		<data name="kinshipLog" format="txt" label="Log File: Calculate Kinship"/> -->
+		<data name="pcs" format="tabular" label="Principal Components"/>
+		<data name="eigenVal" format="tabular" label="Eigen Values"/>
+		<data name="eigenVec" format="tabular" label="Eigen Vectors"/>
+		<data name="pcaLog" format="txt" hidden="true" label="Log File: Run PCA"/>
 	</outputs>
 
 	<tests>
@@ -79,13 +73,12 @@
 
 .. class:: infomark
 
-**Calculate Kinship using TASSEL**
+**Run Principal Component Analysis using TASSEL**
 
 -----
 
 **What this tool does**
 
-This tool generates a Kinship matrix from the genotype data provided. 
 
 -----
 
