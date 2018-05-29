@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE visualization SYSTEM "../../visualization.dtd">
+<visualization name="SNiPlay Visualization">
+    <data_sources>
+            <data_source>
+                        <model_class>HistoryDatasetAssociation</model_class>
+                        <test test_attr="creating_job.tool_id">
+                        	toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_mdsplot/1.1.1
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_mdsplot/1.2.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsslidingwindow/1.0.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsslidingwindow/1.1.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsslidingwindow/1.2.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsslidingwindow/1.3.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.0.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_density/1.2.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_density/1.3.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_density/1.4.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+				toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_density/2.0.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                toolshed.g2.bx.psu.edu/repos/dereeper/tassel5/Tassel/5.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                        	toolshed.g2.bx.psu.edu/repos/dereeper/snmf/snmf/1.2
+                        </test>
+			<!--A enlever-->
+			<test test_attr="creating_job.tool_id">
+			        sniplay_vcftoolsslidingwindow
+			</test>
+                        <test test_attr="creating_job.tool_id">
+                                localhost:9009/repos/gandres/vcftools_filter_stats_diversity5/sniplay_vcftoolsslidingwindow/1.1.0
+                        </test>
+                        <test test_attr="creating_job.tool_id">
+                                sniplay_density
+			</test>
+
+			
+
+                        <!--test type="isinstance" test_attr="datatype" result_type="datatype">data.Text</test-->
+                        <to_param param_attr="id">dataset_id</to_param>
+                        <to_param assign="None">display</to_param>
+            </data_source>
+    </data_sources>
+    <params>
+    	<param type="dataset" var_name_in_template="hda" required="true">dataset_id</param>
+    	<param type="str" var_name_in_template="display_type" required="true" >display</param>
+    </params>
+    <template>sniplayvisu.mako</template>
+</visualization>

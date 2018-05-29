@@ -18,7 +18,7 @@
     </head>
     <body style="margin: 0">
         <div class="jumbotron">
-            <div class="container" style="max-width:100%; padding:0" >
+            <div class="container" style="max-width:80%; padding:0" >
 		<!-- <img src="images/ui_pics/ricefield_IRRI.jpg" width="100%" /> -->
 		<!-- Slideshow container -->
 		<div class="w3-content" style="max-width:100%">
@@ -58,45 +58,9 @@
                 </p>
             </div>
         </div>
-        <div class="container" style="max-width:100%; padding:15;margin:10">
-		<!-- Announcement Section for new tools, workflow or datasets -->
-		<div class="w3-container w3-container-left" style="width:50%;padding:0">
-			<p><h4> <strong>What's New? </strong> </h4></p>
-		</div>
-		<div class="w3-bar w3-black w3-container-left" style="width: 50%;padding:0">
-			<button class="w3-bar-item w3-button" onclick="openTab('tab1')">Tools</button>
-			<button class="w3-bar-item w3-button" onclick="openTab('tab2')">Workflow</button>
-			<button class="w3-bar-item w3-button" onclick="openTab('tab3')">Dataset</button>
-		</div>
-		<div id="tab1" class="w3-container tabNew">
-			<h4>New Tools</h4>
-			<p>tab1</p>
-		</div>
-
-		<div id="tab2" class="w3-container tabNew" style="display:none">
-			<h4>New Workflows</h4>
-			<p>tab2</p> 
-		</div>
-
-		<div id="tab3" class="w3-container tabNew" style="display:none">
-			<h4>New Datasets</h4>
-			<p>see Shared Data</p>
-		</div>		
-		<script>
-		function openTab(tabName) {
-		    var i;
-		    var x = document.getElementsByClassName("tabNew");
-		    for (i = 0; i < x.length; i++) {
-		       x[i].style.display = "none";  
-		    }
-		    document.getElementById(tabName).style.display = "block";  
-		}
-		</script>
-		<!-- End of Announcement Section -->
-		
-            <footer>
-            	
-	    </footer>
-        </div>
+	<!-- <div>
+		<footer>
+		</footer>
+	</div> -->
     </body>
 </html>

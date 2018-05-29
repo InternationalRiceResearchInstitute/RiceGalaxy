@@ -2,7 +2,7 @@
 	<description>(Principal Component Analysis) on genetic data </description>
 	<command><![CDATA[
 		mkdir out;
-		perl $__tool_directory__/run_pipeline.pl -fork1
+		perl $__tool_directory__/run_pipeline.pl -fork1 
 		#if str($geno_type.geno_source)=="hapmap"
 			-h $hapmapGeno
 		#else if str($geno_type.geno_source)=="vcf"

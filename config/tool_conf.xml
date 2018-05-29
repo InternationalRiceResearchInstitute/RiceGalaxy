@@ -21,12 +21,14 @@
   <section id="tassel" name="TASSEL">
     <tool file="tassel5/calculateKinship.xml" />
     <tool file="tassel5/calculatePCA.xml" />
-    <tool file="tassel5/TASSELconversion.xml" />
+    <tool file="tassel5/calculateDistanceMatrix.xml" />
+<!--    <tool file="tassel5/TASSELconversion.xml" /> -->
     <tool file="tassel5/runGLM.xml" />
     <tool file="tassel5/runMLM.xml" />
     <tool file="tassel3/flapjack2hapmap.xml" />
     <tool file="tassel5/plink2vcf.xml" />
     <tool file="tassel5/hapmap2vcf.xml" />
+    <tool file="tassel5/vcf2hapmap.xml" />
   </section>
 
 
@@ -140,5 +142,8 @@
     <label id="ab_solid" text="AB-SOLiD" />
   </section>
   <section id="samtools" name="NGS: SAM Tools">
+  </section>
+  <section id="uniqprimer_section" name="Uniqprimer">
+    <tool file="uniqprimer/uniqprimer/uniqprimer.xml" />
   </section>
 </toolbox>

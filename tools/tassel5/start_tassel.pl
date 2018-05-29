@@ -21,8 +21,8 @@ my $CP = join(":", @fl);
 print $CP . "\n";
 
 # Scan @ARGV for Java memory arguments, and put rest in @args
-my $java_mem_min_default = "-Xms512m";
-my $java_mem_max_default = "-Xmx1536m";
+my $java_mem_min_default = "-Xms2G";
+my $java_mem_max_default = "-Xmx88888888G";
 my $java_mem_min = "";
 my $java_mem_max = "";
 my @args;
