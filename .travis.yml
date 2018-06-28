@@ -1,0 +1,34 @@
+sudo: false
+language: python
+python: 2.7
+os:
+  - linux
+env:
+  - TOX_ENV=py34-lint
+  - TOX_ENV=py27-lint
+  - TOX_ENV=py27-unit
+  - TOX_ENV=qunit
+  - TOX_ENV=first_startup
+  - TOX_ENV=py27-lint-imports
+  - TOX_ENV=py27-lint-imports-include-list
+  - TOX_ENV=validate-test-tools
+  - TOX_ENV=py27-lint-docstring-include-list
+
+matrix:
+  allow_failures:
+  - env: TOX_ENV=py27-lint-imports
+
+addons:
+  apt:
+    packages:
+      - libxml2-utils
+
+install:
+  - pip install tox
+  - if [ "$TOX_ENV" == "qunit" ]; then bash -c 'cd test/qunit && npm install'; fi
+  - if [ "$TOX_ENV" == "first_startup" ]; then bash -c "bash scripts/common_startup.sh && wget -q https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0127.sqlite && mv db_gx_rev_0127.sqlite database/universe.sqlite && bash manage_db.sh -c ./config/galaxy.ini.sample upgrade"; fi
+
+script: tox -e $TOX_ENV
+
+notifications:
+  email: false
