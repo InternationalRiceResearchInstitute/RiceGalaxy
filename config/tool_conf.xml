@@ -11,24 +11,30 @@
     <tool file="data_source/getVCFFromS3.xml" />
 
     <label id="from_others" text="From Other Sources"/>
+    <tool file="data_source/gigwa.xml" />
   </section>
   <section id="snptools" name="SNP Data Tools">
-    <tool file="blat/blat34-1.xml" />
+    <label id="liftover" text="SEQUENCE ALIGN, EXTRACT, AND LIFT-OVER TOOLS"/>
+    <tool file="blat/findseq.xml" />
     <tool file="blat/getSubsequence.xml" />
     <tool file="blat/getContigName.xml" />
     <tool file="blat/parseBlat.xml" />
+    <tool file="blat/batch_subseq/batchSubseq.xml" />
+    <label id="vcftools" text="VCF Tools" version="" />
   </section>
   <section id="tassel" name="TASSEL">
     <tool file="tassel5/calculateKinship.xml" />
     <tool file="tassel5/calculatePCA.xml" />
     <tool file="tassel5/calculateDistanceMatrix.xml" />
-<!--    <tool file="tassel5/TASSELconversion.xml" /> -->
     <tool file="tassel5/runGLM.xml" />
     <tool file="tassel5/runMLM.xml" />
+  </section>
+<!--  <label id="" text=""/> -->
+  <section id="data_conversion" name="Dataformat Conversion Tools">
     <tool file="tassel3/flapjack2hapmap.xml" />
     <tool file="tassel5/plink2vcf.xml" />
     <tool file="tassel5/hapmap2vcf.xml" />
-    <tool file="tassel5/vcf2hapmap.xml" />
+    <tool file="tassel5/vcf2hapmap.xml" /> 
   </section>
 
 
@@ -40,6 +46,7 @@
   <section id="textutil" name="Text Manipulation">
     <tool file="filters/fixedValueColumn.xml" />
     <tool file="filters/catWrapper.xml" hidden="True" />
+    <tool file="stats/column_maker/column_maker.xml" />
     <tool file="filters/condense_characters.xml" />
     <tool file="filters/convert_characters.xml" />
     <tool file="filters/mergeCols.xml" />
@@ -54,6 +61,7 @@
     <tool file="filters/trimmer.xml" />
     <tool file="filters/wc_gnu.xml" />
     <tool file="filters/secure_hash_message_digest.xml" />
+    <tool file="filters/transposeMatrix.xml" />
   </section>
   <section id="convert" name="Convert Formats">
     

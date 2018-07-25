@@ -6,6 +6,7 @@
 		perl $__tool_directory__/run_pipeline.pl -fork1
 		#if str($geno_type.geno_source)=="hapmap"
 			-h $hapmapGeno
+			-sortPositions		
 		#else if str($geno_type.geno_source)=="vcf"
 			-vcf $vcfGeno
 		#else if str($geno_type.geno_source)=="plink"
@@ -17,7 +18,6 @@
                         -geno $flapjackGeno
                         -map $flapjackMap
 		#end if
-		-sortPositions
 		-distanceMatrix
 		-export $__tool_directory__/out/out$id -runfork1 > $distanceMatrixLog 
 		&& mv $__tool_directory__/out/out$id".txt" $distanceMatrix

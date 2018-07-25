@@ -2,10 +2,11 @@
 	<description>from Genotype Data </description>
 	<command><![CDATA[
 		#set id = $kinshipOut.dataset_id
-		mkdir -p $__tool_directory__/out/ &&
+		mkdir -p $__tool_directory__/out$id/ &&
 		perl $__tool_directory__/run_pipeline.pl -fork1
 		#if str($geno_type.geno_source)=="hapmap"
 			-h $hapmapGeno
+			-sortPositions		
 		#else if str($geno_type.geno_source)=="vcf"
 			-vcf $vcfGeno
 		#else if str($geno_type.geno_source)=="plink"
@@ -17,10 +18,9 @@
                         -geno $flapjackGeno
                         -map $flapjackMap
 		#end if
-		-sortPositions
 		-KinshipPlugin 
-		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out/out$id -exportType SqrMatrix -runfork1 > $kinshipLog 
-		&& mv $__tool_directory__/out/out$id".txt" $kinshipOut
+		-method '$kinshipMethod' -maxAlleles '$maxAlleles' -algorithmVariation 'Observed_Allele_Freq' -endPlugin -export $__tool_directory__/out$id/out$id -exportType SqrMatrix -runfork1 > $kinshipLog 
+		&& mv $__tool_directory__/out$id/out$id".txt" $kinshipOut
 		&& rm -rf  $__tool_directory__/out/
 	]]>
 	</command>

@@ -13,6 +13,10 @@ fasta=${10}
 directory=`dirname $0`
 other_inputs_line=""
 
+
+#which eprimer3 >>$log
+#exit
+
 j=1
 for i in $*
 do

@@ -1,0 +1,37 @@
+id: galaxy_getsubsetvcf
+name: Get Subset VCF From 3K
+description: A gentle introduction to the extracting a subset of a VCF from 3KRG Project AWS S3 bucket 
+title_default: "How to subset a 3K Rice VCF data"
+steps:
+    - title: "Welcome to the tour!"
+      content: "This short tour will guide you through using the Get Subset VCF of 3K tool found in the tool panel of this RiceGalaxy instance.<br>
+                You can navigate with your arrow keys and leave the tour at any time point with 'Escape' or the 'End tour' button."
+
+    - title: "Tool Search Bar"
+      element: '#tool-search-query'
+      intro: "You can search the tool here."
+      position: "right"
+      textinsert: "Get Subset of 3K"
+
+    - title: "Get Subset VCF of 3K"
+      element: 'a[href$="tool_runner?tool_id=getVCFSubset"]'
+      intro: "Select Get VCF of 3KRG tool in the tool panel!"
+      position: "right"
+      postclick: 
+        - 'a[href$="tool_runner?tool_id=getVCFSubset"]'
+
+    - title: "Tool Parameters"
+      element: '#uid-10'
+      intro: "Populate your tool parameters. Select your Reference Genome from the drop-down as well as the unique id of the line."
+      position: "right"
+      
+    - title: "Run the Tool"
+      element: '#execute'
+      intro: "Click on execute!"
+      position: "right"
+      postclick:
+        - '#execute'
+
+    - title: "Horay! You did it!"
+      intro: "The job is now running and the dataset will soon be in your history panel. It may take some time to download the files. Thanks for using this tutorial!"
+      

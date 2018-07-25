@@ -1,0 +1,63 @@
+<tool id="batch.samtools.faidx" name="Batch-get-subseq" version="v.01">
+  <description> Batch extract sub-sequences from new draft rice genomes</description>
+   <command interpreter="perl">getSubseqPSL.pl $psl $reference $output $coordFormat</command>
+  <inputs>
+
+    <param name="reference" type="select">
+      <label>Reference genome to get subsequence</label>
+	<option value="/home/galaxy/data/galaxy-prod/database/refGenomes/ir64/os.ir64.cshl.draft.1.0.scaffold.fa">IR64 draft1</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/dj123/os.dj123.cshl.draft.1.0.fsa">DJ123 draft1</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/kasalath/kasalath_genome.fasta">Kasalath draft1</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/irgsp/Nipponbare/IRGSP-1.0_genome.fasta">Nipponbare reference 1.0</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/9311/9311.fa">93-11 latest release (12chr+12k scaffolds</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/ir8/IR8-12Chr-NCBI.fasta">IR 8</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/n22/N22-12Chr-NCBI.fasta">N22</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/mh63/MH63RS2.LNNK00000000.fasta">MH63</option>
+      <option value="/home/galaxy/data/galaxy-prod/database/refGenomes/zs97/ZS97RS2.LNNJ00000000.fasta">ZS97</option>
+	
+    </param>
+
+    <param format="data" name="psl" type="data">
+      <label>File that specifies subsequence coordinates (psl or 3 col format only)</label>
+     </param>
+
+    <param name="coordFormat" type="select" value="psl">
+      <label>Format of coordinate file </label>
+      <option value="psl">psl v3 (blat default)</option>
+      <option value="3col">3 column tab delimited: chrName start stop </option>
+    </param>
+
+
+  </inputs>
+ 
+
+  <outputs>
+    <data format="fasta" name="output" label="Subsequences for ${psl.name} from ${reference.value_label}" />
+  </outputs>
+
+
+  <tests>
+  </tests>
+
+  <help>
+**Batch-get-subseq - what it does**
+
+This tool does a batch extraction of subsequence of interest from the 3 recently published draft genomes (DJ123 - aus, IR64 - indica: Schatz et al, 2014 and Kasalath - aus: Sakai et al 2014). 
+
+Usually, you would align a query sequence to these genomes using the Find-seq tool, filter the alignment using the blat-alignment-filter then extract the subsequences of choice.
+
+Always check that the correct alignment output is used, as mismatch of the names of Target sequences vs the reference genome will cause the application to fail.
+
+Alternatively you could use a 3 column text file tab delimited format as input, with NO header (chromName - start - stop). Example of a 3 col format is
+
+chr01	1	2000
+
+chr04	3000	4000
+
+Samtools_ faidx is used to extract subsequences from the genome FASTA file...
+
+.. _Samtools: http://samtools.sourceforge.net/samtools.shtml
+
+    
+   </help>
+</tool>

@@ -4,7 +4,8 @@
 		mkdir -p $__tool_directory__/out/ &&
 		perl $__tool_directory__/run_pipeline.pl -fork1
 		#if str($geno_type.geno_source) == "hapmap"
-			-h '$hapmapGeno'
+			-h '$hapmapGeno'	
+			-sortPositions
 		#else if str($geno_type.geno_source) == "vcf"
 			-vcf '$vcfGeno'
 		#else if str($geno_type.geno_source) == "plink"
@@ -16,7 +17,6 @@
 			-geno '$flapjackGeno'
 			-map '$flapjackMap'
 		#end if 
-		-sortPositions	
 		-filterAlign -filterAlignMinFreq '$alleleFreq'
 		-fork2 -r '$traitFile'
 		-fork3 -r '$popStructure'

@@ -1,7 +1,9 @@
 <tool name="Get VCF of 3KRG" id="get3kvcf" version="1.0.0">
         <description> from Amazon S3 bucket</description>
-        <command interpreter="python"> 
-		getVCFFromS3.py $reference $variety $output		
+        <command>
+	<![CDATA[ 
+		aws --profile vjuanillas s3 cp s3://3kricegenome/$reference/$variety".snp.vcf.gz" '$output'
+	]]>
 	</command>
         <inputs>
 		<param name="reference" type="select" label="Reference Genome Used">
@@ -16,7 +18,7 @@
 
 		</inputs>
         <outputs>
-                <data name="output" format="auto" />
+                <data name="output" format="bcf_bgzip" label="VCF file"/>
         </outputs>
 
        <help>

@@ -29,12 +29,13 @@ def decompress(gzfile,output):
 		
 
 if __name__ == '__main__':
-	conn=S3Connection('AKIAJULDYSFQQWUZHVJA','GJhOCgkQ5oTePb5W4F8KXtnzhwZGhushvaLT7R4I')
+	#conn=S3Connection('AKIAIUKZTDGGLWYKB77A','MUgODBw7lc9zFMns7IAYd4+Y2VERu5Sg2BPO2K7l')
+	conn=S3Connection(sys.argv[1],sys.argv[2])
 	bucket=conn.get_bucket('3kricegenome');
 	#download(bucket,'Nipponbare/B001.realigned.bam')
-	reference=sys.argv[1]
-	variety=sys.argv[2]
-	output=sys.argv[3]
+	reference=sys.argv[3]
+	variety=sys.argv[4]
+	output=sys.argv[5]
 	finput=reference+"/"+variety+".snp.vcf.gz"
 	foutput="temp.vcf.gz"
 

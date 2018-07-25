@@ -1,7 +1,9 @@
 <tool id="getVCFSubset" name="Get Subset of 3K VCF" version="1.0.0">
 	<description> from Amazon S3 data repository </description>
-	<command interpreter="bash"> 
-		getSubsetVCF.sh $variety $reference $chrom $start $end $output
+	<command> 
+	<![CDATA[
+		sh $__tool_directory__/streamVCF.sh $variety $output $chrom $start $end $reference
+	]]>
 	</command>
 	
 	<inputs>
@@ -16,8 +18,6 @@
 		<param name="chrom" type="text" size="10" label="Chromosome" />
 		<param name="start" type="text" size="10" label="Start Position" />
 		<param name="end" type="text" size="10" label="End Position" />
-
-
 	</inputs>
 
 	<outputs>

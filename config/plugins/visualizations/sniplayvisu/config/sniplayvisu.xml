@@ -29,7 +29,7 @@
                                 toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0
                         </test>
                         <test test_attr="creating_job.tool_id">
-                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0
+                                toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.2.0
                         </test>
                         <test test_attr="creating_job.tool_id">
                                 toolshed.g2.bx.psu.edu/repos/dereeper/sniplay/sniplay_density/1.2.0

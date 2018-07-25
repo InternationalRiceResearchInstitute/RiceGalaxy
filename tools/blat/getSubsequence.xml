@@ -4,11 +4,11 @@
 	#if str($reference.source) != "indexed":
 		mkdir index_dir && 
 		ln -s  $reference.own_file index_dir/genome.fa && 
-		/usr/bin/samtools faidx index_dir/genome.fa &&
-		/usr/bin/samtools faidx index_dir/genome.fa '$scaffold':'$sstart'-'$sstop' > '$output' &&
+		/usr/local/bin/samtools faidx index_dir/genome.fa &&
+		/usr/local/bin/samtools faidx index_dir/genome.fa '$scaffold':'$sstart'-'$sstop' > '$output' &&
 		rm -rf index_dir
 	#else:
-		/usr/bin/samtools faidx '$reference.index.fields.path' '$scaffold':'$sstart'-'$sstop' > '$output'
+		/usr/local/bin/samtools faidx '$reference.index.fields.path' '$scaffold':'$sstart'-'$sstop' > '$output'
 	#end if
    ]]>
   </command>

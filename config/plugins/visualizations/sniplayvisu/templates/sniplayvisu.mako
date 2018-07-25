@@ -205,7 +205,8 @@
 
     #### ****** Visualisation for VCFtools Stats **********
 
-    elif hda.creating_job.tool_id in ['toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.0.0','toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0'] :
+
+    elif hda.creating_job.tool_id in ['toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.0.0','toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.1.0','toolshed.g2.bx.psu.edu/repos/gandres/vcftools_filter_stats_diversity/sniplay_vcftoolsstats/1.2.0'] :
     	if hda.name.split(".")[-2]=='TsTv': ## VCFtools Stats - file .TsTv.summary
 		arguments={'select_title':'TsTv','per_chrom':'off', 'title': 'TsTv','subtitle': '', 'type':'pie', 'stacking':'off','file':hda.file_name,'categories':'Tv:AC,GT,CG,AT;Ts:AG,CT'}
     	elif  hda.name.split(".")[-1]=='annotation' : ## VCFtools Stats - file .annotation

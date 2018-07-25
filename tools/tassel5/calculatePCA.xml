@@ -2,9 +2,10 @@
 	<description>(Principal Component Analysis) on genetic data </description>
 	<command><![CDATA[
 		mkdir out;
-		perl $__tool_directory__/run_pipeline.pl -fork1 
+		perl $__tool_directory__/run_pipeline.pl -Xmx5G -fork1 
 		#if str($geno_type.geno_source)=="hapmap"
 			-h $hapmapGeno
+			-sortPositions		
 		#else if str($geno_type.geno_source)=="vcf"
 			-vcf $vcfGeno
 		#else if str($geno_type.geno_source)=="plink"
@@ -16,7 +17,6 @@
                         -geno $flapjackGeno
                         -map $flapjackMap
 		#end if
-		-sortPositions
 		-PrincipalComponentsPlugin 
 		-covariance $cov -endPlugin -export out/output -runfork1 > $pcaLog ;
 		mv out/output1.txt $out1;
