@@ -137,7 +137,7 @@ svgwrite==1.1.6 --hash:sha256=e404424dad5eaa41efec6e68daa5c0603e3f4f576ada5dca73
 
 # Fabric and dependencies
 Fabric==1.10.2 --hash:sha256=8fe1eb0b0f271e2d41445e7da4470548d3bdf882aab1c1f143505c599996793b
-paramiko==1.15.2 --hash:sha256=c92b168c8db94a9e1362f3fc27bc21e8c20794885bf2f7d303b5ad717c044ebc
+#paramiko==1.15.2 --hash:sha256=c92b168c8db94a9e1362f3fc27bc21e8c20794885bf2f7d303b5ad717c044ebc
 ecdsa==0.13 --hash:sha256=89f149066e4a1e419892cef830fd0db85c227d5d427f7075422ace83429e2d26
 # pycrypto, but it is a direct Galaxy dependency as well
 
