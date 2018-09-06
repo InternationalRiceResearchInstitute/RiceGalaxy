@@ -1,0 +1,63 @@
+<tool name="Get VCF of 3KRG" id="get3kvcf" version="1.0.0">
+        <description> from Amazon S3 bucket</description>
+        <command>
+	<![CDATA[ 
+		aws --profile vjuanillas s3 cp s3://3kricegenome/$reference/$selector.variety".snp.vcf.gz" '$output'
+	]]>
+	</command>
+        <inputs>
+		<param name="reference" type="select" label="Reference Genome Used">
+			<option value="Nipponbare" selected="true">Nipponbare </option>
+			<option value="IR64">IR 64 </option>
+			<option value="9311">9311 </option>
+			<option value="DJ123">DJ123 </option>
+			<option value="Kasalath">Kasalath </option>
+		</param>
+		
+		<conditional name="selector">
+			<param name="which_id" type="select" display="radiobutton" label="Search by:">
+				<option value="designation"> Designation</option>
+				<option value="assay_id"> Assay ID </option>
+			</param>
+			<when value="designation"> 
+				 <param name="variety" type="select" label="Variety Name/Designation">
+					<options from_data_table="all_3k">
+						<column name="name" index="2"/>
+						<column name="value" index="1"/>
+						<filter type="sort_by" column="2"/>
+						<validator type="no_options" message="No genomes are available for theselected input dataset"/>
+					</options> 
+				 </param>	
+			</when>
+			<when value="assay_id">
+				 <param name="variety" type="select" label="Assay ID/Variety ID">
+					<options from_data_table="all_3k">
+						<column name="name" index="1"/>
+						<column name="value" index="1"/>
+						<filter type="sort_by" column="1"/>
+						<validator type="no_options" message="No genomes are available for theselected input dataset"/>
+					</options> 
+				 </param>	
+			</when> 
+		</conditional> 
+		<!--<param name="variety" type="text" size="10" value="CX140" label="Unique 3KRG variety name." help="Use: Get Unique Variety ID's"/> -->
+
+		</inputs>
+        <outputs>
+                <data name="output" format="bcf_bgzip" label="VCF file"/>
+        </outputs>
+
+       <help>
+**Get VCF from 3KRG**
+
+	This tool connects to the Amazon Web Services (AWS) bucket to get a VCF format of a variety in the 3K Rice Genomes data.
+		
+	Input:
+		Reference
+
+		Variety Name
+
+        </help>
+
+</tool>
+

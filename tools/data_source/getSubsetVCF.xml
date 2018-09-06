@@ -48,7 +48,7 @@
 		End Position
 		
 	Output:
-		BCF file containing the variety at specified position (needs to be converted to VCF for further analysis, use {convert formats-convert BCF to VCF tool})
+		BCF file containing the variety at specified position (needs to be converted to VCF for further analysis, use {bcftools view VCF/BCF conversion, view, subset and filter VCF/BCF files}.
 
 	</help>	
 

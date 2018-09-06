@@ -1,4 +1,4 @@
-<tool id="getVarietyName-s3tool" name="Get Unique Variety ID's" version="1.0.0">
+<tool id="getassayid-s3tool" name="Get Unique Variety IDs/Assay ID" version="1.0.2">
 	<description>From Amazon S3 Bucket </description>
 	<command>
 	<![CDATA[

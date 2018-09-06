@@ -1,15 +1,15 @@
 <tool id="get-cont-name" name="Get-contig-names" version="v.01">
   <description> Extract contig or scaffold or chromosome names from rice genomes (draft and reference)</description>
-   <command interpreter = "perl"><![CDATA[
+   <command><![CDATA[
 	#if str($reference.source) != "indexed":
                 mkdir index_dir &&
                 ln -s  $reference.own_file index_dir/genome.fa &&
                 /usr/bin/samtools faidx index_dir/genome.fa && 
-		getContigName.pl index_dir/genome.fa $output &&
+		perl $__tool_directory__/getContigName.pl index_dir/genome.fa $output &&
 		set reference_name='$reference.own_file.value_label' &&
 		rm -rf index_dir
 	#else:
-		getContigName.pl '$reference.index.fields.path' $output &&
+		perl $__tool_directory__/getContigName.pl '$reference.index.fields.path' $output &&
 		set reference_name='$reference.index.fields.name'
 	#end if
    ]]>

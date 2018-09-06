@@ -1,0 +1,106 @@
+id: galaxy_tassel_calcKinship
+name: Calculating Kinship Matrix
+description: How to use Calculate Kinship under TASSEL tools
+title_default: "Calculate Kinship using TASSEL"
+
+# A tour is made of several steps, each of them beginning with a dash '-'
+steps:
+    # 'title's will be displayed in the header of each step-container
+    # If you don't specify any title, a default title is used, defined above.
+    - title: "Let's get started!"
+      # 'content' is the actual text that is shown to the user
+      content: "This short tour will guide you through calculating the kinship matrix using TASSEL software given a genotype file.<br>
+                You can navigate with your arrow keys and leave the tour at any time point with 'Escape' or the 'End tour' button."
+      # backdrop is just one of many properties you can attach to one step-container,
+      # a full reference can be found at http://bootstraptour.com/api/
+      backdrop: true
+
+    # 'element' is the JQuery Selector (http://api.jquery.com/category/selectors/) of the element you want to describe
+    # In this case we want to highlight the Upload button with the `.upload-button` selector
+    - title: "Upload your data"
+      element: ".upload-button"
+      intro: "Galaxy supports many ways to get in your data.<br>
+              Use this button to upload your data."
+      # position of the text box relative to the selected element
+      position: "right"
+      # You can trigger click() events on arbitrary elements before (preclick) or after (postclick) the element is shown
+      postclick:
+        - ".upload-button"
+
+    - title: "Upload your data"
+      element: "#btn-local"
+      intro: "You can upload data from your computer."
+      position: "top"
+      postclick:
+        - "#btn-new"
+
+    - title: "Upload your data"
+      element: "#btn-new"
+      intro: "Copy and paste data directly into Galaxy or include URLs that lead to your data"
+      position: "top"
+
+    - title: "Insert URLs"
+      element: ".upload-text-content:first"
+      intro: "URLs separated by a line break are automatically downloaded by Galaxy."
+      position: "top"
+      textinsert: |
+        https://raw.githubusercontent.com/bgruening/galaxytools/adf077b912ddebd97b07b947b855cdd2862ed8ef/tools/augustus/test-data/human_augustus.fa
+        https://raw.githubusercontent.com/bgruening/galaxytools/adf077b912ddebd97b07b947b855cdd2862ed8ef/tools/sailfish/test-data/reads_2.fastq
+        https://raw.githubusercontent.com/bgruening/galaxytools/adf077b912ddebd97b07b947b855cdd2862ed8ef/tools/statistics/test-data/anderson.tabular
+
+    - title: "Start the upload"
+      element: "#btn-start"
+      intro: "Upload the data into your Galaxy history."
+      position: "top"
+      postclick:
+        - "#btn-start"
+
+    - title: "Close upload/download manager"
+      element: "#btn-close"
+      intro: "Close the upload manager with this button or with a click outside of the manager window."
+      position: "top"
+      postclick:
+        - "#btn-close"
+
+    - title: "Tools"
+      element: "#left"
+      intro: "This is your ToolBox. All tools available in your Galaxy instance you can find here."
+      position: "right"
+
+    - title: "Tool search bar"
+      element: '#tool-search-query'
+      intro: "You can search for tools by keywords."
+      position: "right"
+      textinsert: 'kinship'
+
+    - title: "Tool categories"
+      element: '#title_filter > a'
+      intro: "Tools are grouped into categories to make them easier to find."
+      position: "right"
+
+    - title: "Select a tool"
+      element: 'a[href$="tool_runner?tool_id=tassel-calc-kinship"]'
+      intro: "Select and load a tool for your analysis by clicking the underlined link."
+      position: "right"
+      postclick:
+        - 'a[href$="tool_runner?tool_id=tassel-calc-kinship"]'
+
+    - title: "Calculate Kinship Tool"
+      element: '#center-panel'
+      intro: "Your tool is loaded into the main Galaxy page and ready for use."
+      position: "right"
+      #backdropContainer: 'background'
+      #backdrop: true
+
+    - title: "Tool parameters"
+      element: '#center-panel .ui-portlet-limited'
+      intro: "Here you can choose your tool parameters. Select your input dataset from your history and specify parameters for your analysis."
+      position: "right"
+
+    - title: "Tool help"
+      element: 'div.ui-form-help'
+      intro: "Every Galaxy tool has a help section with detailed information about the tool and its parameters.Have a look and study your tool in depth by reading it."
+      position: "top"
+
+    - title: "Enjoy Galaxy"
+      intro: "Thanks for taking this tour! Happy research with Galaxy!"
