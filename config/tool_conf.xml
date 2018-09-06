@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox>
+  <section id="getext" name="Get Data">
+    <tool file="data_source/upload.xml" />
+    <label id="from_3k" text="From 3K Rice Project"/>
+    <tool file="data_source/getUnique_AssayID_3K.xml"/>  
+    <tool file="data_source/getSubsetVCF_v2.xml"/>  
+    <tool file="data_source/getVCFFromS3_v3.xml"/>  
+    <tool file="data_source/gigwa.xml" />
+  </section>
+  <label id="ricegalaxy" text="RICEGALAXY WORKFLOW TOOLS"/>
+  <section id="snptools" name="From 3K Rice Project">
+	 <tool file="blat/findseq2.xml" />
+	 <tool file="blat/getSubsequence.xml" />
+	 <tool file="blat/parseBlat.xml" />       
+	 <tool file="blat/getContigName.xml" />       
+	 <tool file="blat/batch_subseq/batchSubseq.xml" />       
+  </section> 
+  <label id="default" text="DEFAULT GALAXY TOOLS"/>
+  <section id="textutil" name="Text Manipulation">
+    <tool file="filters/fixedValueColumn.xml" />
+    <tool file="filters/catWrapper.xml"/>
+    <tool file="filters/condense_characters.xml" />
+    <tool file="filters/convert_characters.xml" />
+    <tool file="filters/mergeCols.xml" />
+    <tool file="filters/CreateInterval.xml" />
+    <tool file="filters/cutWrapper.xml"/>
+    <tool file="filters/changeCase.xml" />
+    <tool file="filters/pasteWrapper.xml" />
+    <tool file="filters/remove_beginning.xml" />
+    <tool file="filters/randomlines.xml" />
+    <tool file="filters/headWrapper.xml" />
+    <tool file="filters/tailWrapper.xml"  />
+    <tool file="filters/trimmer.xml" />
+    <tool file="filters/wc_gnu.xml" />
+    <tool file="filters/secure_hash_message_digest.xml" />
+  </section>
+  <section id="convert" name="Convert Formats">
+    <tool file="filters/bed2gff.xml" />
+    <tool file="filters/gff2bed.xml" />
+    <tool file="maf/maf_to_bed.xml" />
+    <tool file="maf/maf_to_interval.xml" />
+    <tool file="maf/maf_to_fasta.xml" />
+    <tool file="filters/sff_extractor.xml" />
+    <tool file="filters/wig_to_bigwig.xml" />
+    <tool file="filters/bed_to_bigbed.xml" />
+  </section>
+  <section id="filter" name="Filter and Sort">
+    <tool file="stats/filtering.xml" />
+    <tool file="filters/sorter.xml" />
+    <tool file="filters/grep.xml" />
+    <label id="gff" text="GFF" />
+        <tool file="filters/gff/extract_GFF_Features.xml" />
+        <tool file="filters/gff/gff_filter_by_attribute.xml" />
+        <tool file="filters/gff/gff_filter_by_feature_count.xml" />
+        <tool file="filters/gff/gtf_filter_by_attribute_values_list.xml" />
+  </section>
+  <section id="group" name="Join, Subtract and Group">
+    <tool file="filters/joiner.xml" />
+    <tool file="filters/compare.xml" />
+    <tool file="stats/grouping.xml" />
+  </section>
+  <section id="stats" name="Statistics">
+    <tool file="stats/gsummary.xml" />
+    <tool file="filters/uniq.xml" />
+  </section>
+  <section id="plots" name="Graph/Display Data">
+    <tool file="plotting/boxplot.xml" />
+    <tool file="maf/vcf_to_maf_customtrack.xml" />
+  </section>
+</toolbox>
