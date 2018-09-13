@@ -16,9 +16,18 @@
 	 <tool file="blat/getContigName.xml" />       
 	 <tool file="blat/batch_subseq/batchSubseq.xml" />       
   </section> 
+  <section id="tassel" name="TASSEL" version="">
+	<tool file ="tassel5/calculateKinship.xml"/>
+	<tool file ="tassel5/calculatePCA.xml"/>
+	<tool file ="tassel5/runGLM.xml"/>
+	<tool file ="tassel5/runMLM.xml"/>
+	<tool file ="tassel5/calculateDistanceMatrix.xml"/>
+	<tool file ="tassel5/getDistanceMatrix.xml"/>
+  </section>
   <label id="default" text="DEFAULT GALAXY TOOLS"/>
   <section id="textutil" name="Text Manipulation">
     <tool file="filters/fixedValueColumn.xml" />
+    <tool file="stats/column_maker/column_maker.xml" />
     <tool file="filters/catWrapper.xml"/>
     <tool file="filters/condense_characters.xml" />
     <tool file="filters/convert_characters.xml" />
@@ -33,6 +42,7 @@
     <tool file="filters/tailWrapper.xml"  />
     <tool file="filters/trimmer.xml" />
     <tool file="filters/wc_gnu.xml" />
+    <tool file="filters/fixedValueColumn.xml" />
     <tool file="filters/secure_hash_message_digest.xml" />
   </section>
   <section id="convert" name="Convert Formats">
