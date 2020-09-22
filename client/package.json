@@ -27,6 +27,6 @@
     "grunt-spritesmith": "^4.7.1",
     "i18n-webpack-plugin": "^0.2.7",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.7.0"
+    "webpack-dev-server": "^3.1.11"
   }
 }
